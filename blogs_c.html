@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog - Luna de Sal Tours</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="estilos/estq.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+
+/* COLOR BASE (igual al footer) */
+:root{
+--color-principal:#398b99;
+--color-suave:#e6f7ff;
+}
+
+/* HERO BLOG */
+.blog-hero{
+padding:80px 20px;
+background:linear-gradient(to bottom,var(--color-suave),#ffffff);
+text-align:center;
+}
+
+/* DESTACADO */
+.post-destacado{
+background:var(--color-principal);
+color:white;
+padding:50px;
+border-radius:20px;
+margin-bottom:60px;
+}
+
+.post-destacado button{
+background:white;
+color:var(--color-principal);
+border:none;
+padding:10px 20px;
+border-radius:10px;
+}
+
+/* LISTA BLOG */
+.blog-list{
+max-width:1000px;
+margin:auto;
+}
+
+/* ITEM */
+.blog-item{
+display:flex;
+gap:20px;
+background:white;
+border-radius:15px;
+margin-bottom:30px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+overflow:hidden;
+transition:0.3s;
+}
+
+.blog-item:hover{
+transform:translateY(-5px);
+}
+
+.blog-item img{
+width:250px;
+object-fit:cover;
+}
+
+@media (max-width: 768px) {
+    
+    .blog-item {
+        flex-direction: column; /* 👈 se pone en vertical */
+    }
+
+    .blog-item img {
+        width: 100%; /* 👈 ocupa todo el ancho */
+        height: 200px;
+    }
+
+    .blog-text {
+        text-align: center; /* opcional, se ve mejor en móvil */
+    }
+}
+
+/* TEXTO */
+.blog-text{
+padding:20px;
+text-align:left;
+}
+
+.tag{
+background:var(--color-principal);
+color:white;
+padding:5px 10px;
+border-radius:10px;
+font-size:12px;
+}
+.promo-semana-santa {
+    padding: 80px 20px;
+    background: linear-gradient(to right, #398b99, #2f6f7c);
+    color: white;
+}
+
+.promo-semana-santa h2 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    margin-bottom: 40px;
+    font-size: 18px;
+}
+
+.promo-box {
+    background: white;
+    color: #333;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 500px;
+    margin: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.promo-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.promo-box li {
+    margin: 10px 0;
+}
+
+.precio {
+    font-size: 22px;
+    margin: 20px 0;
+    color: #398b99;
+}
+/* TIPS */
+.tips{
+padding:80px 20px;
+background:var(--color-suave);
+text-align:center;
+}
+
+.tip-box{
+background:white;
+padding:20px;
+border-radius:15px;
+margin:10px;
+}
+
+/* NEWSLETTER */
+.newsletter{
+padding:60px;
+text-align:center;
+background:var(--color-principal);
+color:white;
+}
+
+.newsletter input{
+padding:10px;
+border:none;
+border-radius:10px;
+margin-right:10px;
+}
+
+.newsletter button{
+padding:10px 20px;
+border:none;
+border-radius:10px;
+background:white;
+color:var(--color-principal);
+}
+/* REDES SOCIALES */
+.redes-sociales {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 999;
+}
+
+.redes-sociales a {
+    display: block;
+    background: #63b1be;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    margin: 5px 0;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 0 10px 10px 0; /* 👈 también cambia esto */
+    transition: 0.3s;
+}
+
+.redes-sociales a:hover {
+    background: #2f6f7c;
+    transform: translateX(5px); /* 👈 se mueve hacia adentro */
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top mi-navbar shadow ">
+  <div class="container">
+    <a class="navbar-brand" href="#">LUNA DE SAL</a>
+
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index_c.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="quien_c.html">¿Quiénes somos?</a></li>
+        <li class="nav-item"><a class="nav-link" href="servicios_c.html">Servicios</a></li>
+        <li class="nav-item"><a class="nav-link" href="blogs_c.html">Blogs</a></li>
+        <li class="nav-item"><a class="nav-link" href="contactos_c.html">Contactos</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- PORTADA -->
+<section class="principal">
+  <video class="video-fondo" autoplay muted loop>
+    <source src="vid7.mp4" type="video/mp4">
+  </video>
+    <!---ola-->
+<div class="ola">
+<div style="height: 80px; overflow: hidden;">
+<svg viewBox="0 0 500 150" preserveAspectRatio="none">
+<path d="M-1.41,0.52 C168.45,245.23 353.55,-98.17 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
+ style="stroke: none; fill:#398b99;"></path>
+</svg>
+</div>
+</div>
+
+  <div class="contenido">
+    <br><br><br>
+    <h1>Blog & Novedades</h1>
+    <p>Descubre ofertas y consejos de viaje</p>
+  </div>
+</section>
+
+<br><br><br>
+
+<!-- HERO BLOG -->
+<section class="blog-hero">
+
+<div class="container">
+
+<!-- DESTACADO -->
+<div class="post-destacado">
+<h2>✨ Semana Santa en Uyuni</h2>
+<p>
+Aprovecha nuestro paquete especial con 20% de descuento. Incluye transporte, hospedaje y guía profesional.
+</p>
+<a href="#promo" class="btn btn-light">Ver paquete</a>
+</div>
+
+<!-- LISTA -->
+<div class="blog-list">
+
+<!-- ITEM -->
+<div class="blog-item">
+<img src="img/lapaz.jpg">
+<div class="blog-text">
+<span class="tag">NUEVO</span>
+<h5>Nuevo tour urbano en La Paz</h5>
+<p>Explora mercados, teleféricos y miradores en una experiencia única.</p>
+</div>
+</div>
+
+<!-- ITEM -->
+<div class="blog-item">
+<img src="img/madidi.jpg">
+<div class="blog-text">
+<span class="tag">TENDENCIA</span>
+<h5>Madidi: el destino del momento</h5>
+<p>Uno de los parques más biodiversos del planeta ahora con paquetes accesibles.</p>
+</div>
+</div>
+
+<!-- ITEM -->
+<div class="blog-item">
+<img src="img/lagoti.jpg">
+<div class="blog-text">
+<span class="tag">DESTINO</span>
+<h5>Lago Titicaca imprescindible</h5>
+<p>Descubre cultura, historia y paisajes únicos en este lugar mágico.</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+<section class="promo-semana-santa" id="promo">
+  <div class="container text-center">
+
+    <h2>🌄 Promoción Semana Santa</h2>
+    <p class="subtitulo">Descubre el Salar de Uyuni con una experiencia única</p>
+
+    <div class="promo-box">
+      <h3>✨ Paquete 3 Días / 2 Noches</h3>
+
+      <ul>
+        <li>🚐 Transporte ida y vuelta</li>
+        <li>🏨 Hospedaje incluido</li>
+        <li>🍽️ Alimentación completa</li>
+        <li>🧭 Guía turístico profesional</li>
+        <li>📸 Paradas en lugares icónicos</li>
+      </ul>
+
+      <p class="precio">🔥 Desde <strong>$120</strong> por persona</p>
+
+      <button class="btn btn-light"><a class="nav-link" href="contactos.html">Reservar ahora</a></button>
+    </div>
+  </div>
+
+  
+</section>
+
+
+<!-- TIPS -->
+<section class="tips">
+
+<h2>Consejos de viaje</h2>
+
+<div class="container">
+<div class="row">
+
+<div class="col-md-4">
+<div class="tip-box">
+<h5>🎒 Qué llevar</h5>
+<p>Ropa cómoda, bloqueador solar y cámara.</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="tip-box">
+<h5>🌡️ Clima</h5>
+<p>Prepárate para cambios bruscos de temperatura.</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="tip-box">
+<h5>📸 Fotografía</h5>
+<p>Los mejores momentos son al amanecer y atardecer.</p>
+</div>
+</div>
+
+</div>
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+<div class="container">
+<div class="row">
+
+<div class="col-md-4">
+<h5>Luna de Sal Tours</h5>
+<p>Viajes únicos en Bolivia.</p>
+</div>
+
+<div class="col-md-4">
+<h5>Enlaces</h5>
+<a href="index_c.html">Inicio</a>
+<a href="quien_c.html">¿Quiénes somos?</a>
+<a href="servicios_c.html">Servicios</a>
+<a href="blogs_c.html">Blog</a>
+<a href="contactos_c.html">Contactos</a>
+</div>
+
+<div class="col-md-4">
+<h5>Contacto</h5>
+<p>Email: info@lunadesal.com</p>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 Luna de Sal Tours
+</div>
+</div>
+</footer>
+
+<div class="redes-sociales">
+  <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="https://wa.me/59100000000" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
